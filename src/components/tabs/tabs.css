@@ -1,0 +1,51 @@
+.tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabs__button {
+  height: 50px;
+
+  flex-grow: 1;
+
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+
+  background: #FFFFFF;
+  color: #4A4A4A;
+  border: 1px solid #DFE5EC;
+
+  cursor: pointer;
+}
+
+.tabs__button:hover:not(.tabs__button--active) {
+  border-color: #2196F3;
+}
+
+.tabs__button:active {
+  outline: none;
+}
+
+.tabs__button:focus {
+  outline: none;
+}
+
+.tabs__button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.tabs__button:nth-child(2) {
+  border-radius: 0;
+}
+
+.tabs__button:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.tabs__button--active {
+  background-color: #2196F3;
+  color: #FFFFFF;
+}

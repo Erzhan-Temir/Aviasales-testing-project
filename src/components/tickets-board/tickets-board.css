@@ -1,0 +1,8 @@
+.tickets-board {
+  width: 502px;
+  height: 800px;
+}
+
+.tickets-board__heading {
+  display: none;
+}
