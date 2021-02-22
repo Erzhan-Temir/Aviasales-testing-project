@@ -4,6 +4,7 @@ import "./main-board.css";
 import Filter from '../filter/filter';
 import TicketsBoard from '../tickets-board/tickets-board';
 
+
 const MainBoard = () => {
   return (
     <main className="main-board">

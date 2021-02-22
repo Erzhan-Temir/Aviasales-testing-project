@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {fetchTickets} from '../actions/actions';
+import filterSelector from '../selectors/selectors';
 
 const withReduxTicketsList = (Component) => {
   const WithReduxTicketsList = (props) => {
@@ -20,7 +21,7 @@ const withReduxTicketsList = (Component) => {
 
   const mapStateToProps = (state) => {
     return {
-      tickets: state.tickets,
+      tickets: filterSelector(state),
       isLoading: state.isLoading
     };
   };

@@ -6,11 +6,13 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers/reducer';
+import {filterValues} from './utils/const';
 
 const initialState = {
   tickets: [],
   isLoading: true,
   hasError: false,
+  currentFilters: [filterValues[0].count],
 };
 
 const store = createStore(reducer, initialState, applyMiddleware(thunk));

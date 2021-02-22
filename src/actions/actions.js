@@ -16,6 +16,12 @@ export const ActionCreator = {
     return {
       type: `FETCH_TICKETS_REQUEST_ERROR`,
     };
+  },
+  changeFilter: (value) => {
+    return {
+      type: `CHANGE_FILTER_VALUE`,
+      payload: value,
+    };
   }
 };
 
