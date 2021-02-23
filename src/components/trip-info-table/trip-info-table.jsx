@@ -4,13 +4,15 @@ import {getTransferCount, TimeHumanizer} from '../../utils/utils';
 import './trip-info-table.css';
 
 const TripInfoTable = (props) => {
-
   const {tripInfo: {origin, destination, duration, stops, date}} = props;
+
+
   const transferString = getTransferCount(stops);
   const transferCities = stops.join(`, `);
   const departureTime = TimeHumanizer.departureTime(date);
   const arrivalTime = TimeHumanizer.arrivalDate(date, duration);
   const flightTime = TimeHumanizer.flightTime(duration);
+
 
   return (
     <table>

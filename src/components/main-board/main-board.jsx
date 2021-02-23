@@ -1,8 +1,7 @@
 import React from 'react';
-import "./main-board.css";
-
 import Filter from '../filter/filter';
 import TicketsBoard from '../tickets-board/tickets-board';
+import "./main-board.css";
 
 
 const MainBoard = () => {

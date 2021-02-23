@@ -4,11 +4,13 @@ import './filter-item.css';
 
 const FilterItem = (props) => {
   const {filterItemData: {value, text, count}, currentFilters, changeFilter} = props;
-
   const initialState = (currentFilters.indexOf(count) > -1);
+
+
   const [valueCheckbox, setValueCheckbox] = useState(initialState);
 
-  const onInputChange = (evt) => {
+
+  const handleInputChange = (evt) => {
     changeFilter(count);
     setValueCheckbox(evt.target.checked);
   };
@@ -21,7 +23,7 @@ const FilterItem = (props) => {
         id={value}
         name={value}
         checked={valueCheckbox}
-        onChange={onInputChange}
+        onChange={handleInputChange}
       ></input>
       <label htmlFor={value} className="filter__checkbox-label">{text}</label>
     </div>

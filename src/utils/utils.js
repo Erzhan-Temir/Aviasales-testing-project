@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
 
+
 export const numberWithSpaces = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ` `);
 };
+
 
 export const getTransferCount = (stops) => {
   if (stops.length === 0) {
@@ -15,6 +17,7 @@ export const getTransferCount = (stops) => {
 
   return `${stops.length} пересадки`;
 };
+
 
 export const TimeHumanizer = {
   departureTime(time) {

@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {ActionCreator} from '../actions/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../actions/actions';
+import ErrorBoundary from '../components/error-boundary/error-boundary';
 
-const withErrorBoundary = (ComponentToDecorate) => {
-  class WithErrorBoundary extends Component {
+
+const withErrorBoundary = (Component) => {
+  class WithErrorBoundary extends PureComponent {
     constructor(props) {
       super(props);
     }
@@ -19,12 +21,12 @@ const withErrorBoundary = (ComponentToDecorate) => {
 
       if (hasError) {
         return (
-          <p>Something is wrong. Reload the page, please.</p>
+          <ErrorBoundary />
         );
       }
 
       return (
-        <ComponentToDecorate {...this.props} />
+        <Component {...this.props} />
       );
     }
   }

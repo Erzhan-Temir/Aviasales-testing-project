@@ -3,26 +3,24 @@ import {ActionCreator} from '../actions/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-const withReduxFilter = (Component) => {
-  const WithReduxFilter = (props) => {
-    return (
-      <Component {...props} />
-    );
+const withReduxTabs = (Component) => {
+  const WithReduxTabs = (props) => {
+    return <Component {...props} />;
   };
 
   const mapStateToProps = (state) => {
     return {
-      currentFilters: state.currentFilters
+      currentSorting: state.currentSorting,
     };
   };
 
   const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-      changeFilter: ActionCreator.changeFilter
+      changeSorting: ActionCreator.changeSorting
     }, dispatch);
   };
 
-  return connect(mapStateToProps, mapDispatchToProps)(WithReduxFilter);
+  return connect(mapStateToProps, mapDispatchToProps)(WithReduxTabs);
 };
 
-export default withReduxFilter;
+export default withReduxTabs;

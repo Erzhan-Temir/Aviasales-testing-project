@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {numberWithSpaces} from '../../utils/utils';
 import TripInfoTable from '../trip-info-table/trip-info-table';
 import './tickets-list-item.css';
-import {numberWithSpaces} from '../../utils/utils';
 
 const TicketsListItem = (props) => {
   const {ticketInfo} = props;

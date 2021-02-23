@@ -1,3 +1,5 @@
+export const RENDER_PER_STEP_COUNT = 5;
+
 export const filterValues = [
   {
     value: `all`,
@@ -23,5 +25,16 @@ export const filterValues = [
     value: `three-transfer`,
     text: `3 пересадки`,
     count: 3,
-  }
+  },
+];
+
+export const tabsButtonValues = [
+  {
+    value: `first-cheap`,
+    text: `Самый дешевый`,
+  },
+  {
+    value: `first-fast`,
+    text: `Самый быстрый`,
+  },
 ];

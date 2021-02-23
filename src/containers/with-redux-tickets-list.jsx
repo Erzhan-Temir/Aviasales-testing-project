@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {fetchTickets} from '../actions/actions';
-import filterSelector from '../selectors/selectors';
+import totalSelector from '../selectors/selectors';
 
 const withReduxTicketsList = (Component) => {
   const WithReduxTicketsList = (props) => {
     useEffect(() => {
       props.fetchTickets();
-      // return () => {
-      //   cleanup
-      // };
     }, []);
 
     return (
@@ -21,7 +18,7 @@ const withReduxTicketsList = (Component) => {
 
   const mapStateToProps = (state) => {
     return {
-      tickets: filterSelector(state),
+      tickets: totalSelector(state),
       isLoading: state.isLoading
     };
   };
@@ -34,8 +31,6 @@ const withReduxTicketsList = (Component) => {
 
   WithReduxTicketsList.propTypes = {
     fetchTickets: PropTypes.func.isRequired,
-    tickets: PropTypes.array.isRequired,
-    isLoading: PropTypes.bool.isRequired,
   };
 
   return connect(mapStateToProps, mapDispatchToProps)(WithReduxTicketsList);
