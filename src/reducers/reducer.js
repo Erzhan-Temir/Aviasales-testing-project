@@ -19,17 +19,18 @@ const reducer = (state = {}, action) => {
       });
 
     case `CHANGE_FILTER_VALUE`:
-      const filtersSet = new Set(state.currentFilters);
+      const filters = state.currentFilters.slice();
       const newFilter = action.payload;
+      const indexOfNewFilter = filters.indexOf(newFilter);
 
-      if (filtersSet.has(newFilter)) {
-        filtersSet.delete(newFilter);
+      if (indexOfNewFilter > -1) {
+        filters.splice(indexOfNewFilter, 1);
       } else {
-        filtersSet.add(newFilter);
+        filters.push(newFilter);
       }
 
       return Object.assign({}, state, {
-        currentFilters: Array.from(filtersSet),
+        currentFilters: filters,
       });
   }
   return state;

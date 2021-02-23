@@ -25,8 +25,8 @@ function filterTickets(tickets, filters) {
     return tickets;
   }
 
-  filters.forEach((filter) => {
-    filterByTransferCount(filter);
+  filters.forEach((filterCount) => {
+    filterByTransferCount(filterCount);
   });
 
   return filteredTickets;
