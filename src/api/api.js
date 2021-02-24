@@ -8,19 +8,12 @@ const API = {
     headers: {"Content-type": `application/json`}
   }),
 
-  searchId: null,
-
   getSearchId() {
     return this.base.get(`/search`);
   },
 
-  getTickets() {
-    this.getSearchId()
-      .then((response) => {
-        this.searchId = response.data.searchId;
-      });
-
-    return this.base.get(`tickets?searchId=${this.searchId}`);
+  getTickets(searchId) {
+    return this.base.get(`tickets?searchId=${searchId}`);
   },
 };
 

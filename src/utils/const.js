@@ -1,5 +1,7 @@
 export const RENDER_PER_STEP_COUNT = 5;
 
+export const CHECK_LONG_POLLING_INTERVAL = 20000;
+
 export const filterValues = [
   {
     value: `all`,

@@ -7,6 +7,7 @@ export const ActionCreator = {
     };
   },
 
+
   fetchTicketsSuccess: (tickets) => {
     return {
       type: `FETCH_TICKETS_REQUEST_SUCCESS`,
@@ -17,6 +18,20 @@ export const ActionCreator = {
   fetchTicketsError: () => {
     return {
       type: `FETCH_TICKETS_REQUEST_ERROR`,
+    };
+  },
+
+  saveSearchId: (searchId) => {
+    return {
+      type: `SAVE_SEARCH_ID`,
+      payload: searchId,
+    };
+  },
+
+  checkLongPollingConnection: (isStopped) => {
+    return {
+      type: `CHECK_LONG_POLLING_CONNECTION`,
+      payload: isStopped,
     };
   },
 
@@ -41,9 +56,23 @@ export const ActionCreator = {
   }
 };
 
+
 export const fetchTickets = () => () => (dispatch) => {
   dispatch(ActionCreator.fetchTicketsRequest());
-  API.getTickets()
+
+  API.getSearchId()
+    .then((response) => response.data.searchId)
+    .then((searchId) => {
+      dispatch(ActionCreator.saveSearchId(searchId));
+      return API.getTickets(searchId);
+    })
     .then((response) => dispatch(ActionCreator.fetchTicketsSuccess(response.data.tickets)))
     .catch(() => dispatch(ActionCreator.fetchTicketsError()));
+
+};
+
+export const checkLongPollingStopped = () => (searchId) => (dispatch) => {
+  API.getTickets(searchId)
+    .then((response) => dispatch(ActionCreator.checkLongPollingConnection(response.data.stop)))
+    .catch(() => dispatch(ActionCreator.checkLongPollingConnection(false)));
 };

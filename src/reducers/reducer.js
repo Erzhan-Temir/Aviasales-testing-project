@@ -2,7 +2,9 @@ import {filterValues, tabsButtonValues, RENDER_PER_STEP_COUNT} from '../utils/co
 
 const initialState = {
   tickets: [],
+  searchId: null,
   isLoading: true,
+  isLongPollingStopped: true,
   hasError: false,
   currentFilters: [filterValues[0].count],
   currentSorting: tabsButtonValues[0].value,
@@ -23,6 +25,7 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         tickets: action.payload,
         isLoading: false,
+        isLongPollingStopped: false,
       });
 
 
@@ -31,6 +34,18 @@ const reducer = (state = initialState, action) => {
         tickets: [],
         isLoading: false,
         hasError: true,
+      });
+
+
+    case `SAVE_SEARCH_ID`:
+      return Object.assign({}, state, {
+        searchId: action.payload,
+      });
+
+
+    case `CHECK_LONG_POLLING_CONNECTION`:
+      return Object.assign({}, state, {
+        isLongPollingStopped: action.payload,
       });
 
 
