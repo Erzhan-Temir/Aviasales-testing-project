@@ -1,5 +1,7 @@
 ## Aviasales testing project
 
+### Published version of the project can be found here [GitHub pages](https://erzhan-temir.github.io/Aviasales-testing-project/)
+
 Siplified service for searching online tickets.
 
 Information and task were taken from [Hexlet testing projects list](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
